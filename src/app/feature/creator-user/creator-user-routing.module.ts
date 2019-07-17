@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ShellComponent } from './user/shell/shell.component';
+import { UserShellComponent } from './user-shell/user-shell.component';
 
 
 const routes: Routes = [
-  {path:'', component:ShellComponent}
+  {path:'', component:UserShellComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FeaturesRoutingModule { }
+export class CreatorUserRoutingModule { }

@@ -4,7 +4,7 @@ import { ShellComponent } from './core/shell/shell.component';
 
 const routes: Routes = [
   {path:'',component:ShellComponent, children:[
-   {path:'user',  loadChildren:() => import('./features/features.module').then(m => m.FeaturesModule)}
+   {path:'',  loadChildren:() => import('./feature/feature.module').then(m => m.FeatureModule)}
   ]}
 ];
 
