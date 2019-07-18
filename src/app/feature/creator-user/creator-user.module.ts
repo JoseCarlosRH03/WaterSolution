@@ -5,6 +5,7 @@ import { CreatorUserRoutingModule } from './creator-user-routing.module';
 import { UserShellComponent } from './user-shell/user-shell.component';
 import { FormComponent } from './user-shell/form/form.component';
 import { ListComponent } from './user-shell/list/list.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
