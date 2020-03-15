@@ -1,0 +1,31 @@
+
+<div class="row justify-content-end h-100">
+    <div class="col-md-4 col-sm-12 bg-white shadow p-3  cuerpo">
+        <div class="row justify-content-center">
+            <div class="center m-0">
+                <img src="../../../../assets/Untitled.png" alt="" class="offset-1">
+                <h2 class="text-center m-0">Perdida de contraseña</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center align-items-center h-50">
+            <form class="col-8" [formGroup]="LoginSevice_.ContrasenaForm">
+                <mat-form-field class="example-full-width col-12">
+                    <mat-label>Codigo de Usuario</mat-label>
+                    <input matInput formControlName="codigo" placeholder="Codigo del Empleado">
+                    <mat-icon matSuffix><i class="fas fa-user"></i></mat-icon>
+                </mat-form-field>
+                <br>
+                <mat-form-field class="example-full-width col-12">
+                    <mat-label>Extensión</mat-label>
+                    <input matInput formControlName="extension" placeholder="Telefono al ser contactado" type="text">
+                    <mat-icon matSuffix><i class="fas fa-phone-square-alt"></i></mat-icon>
+                </mat-form-field> 
+            </form>
+        </div>
+        <div class="row justify-content-center">
+            <button mat-raised-button class="bg-info col-3 m-1" >Solicitar</button>
+            <button mat-raised-button class="bg-warning col-3 m-1" routerLink="">Canselar</button>
+            <p mat-flat-button routerLink="." class="text-center col-10 m-2">Su reporte será enviado a soporte técnico para ser contactado</p>
+        </div>
+    </div>
+</div>
