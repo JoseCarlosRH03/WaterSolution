@@ -1,6 +1,15 @@
-<div class="container-fluid h-100">
-    <router-outlet> 
-    
-    </router-outlet>
-</div>
+<ng-container class="container-fluid m-0 p-0">
+    <app-header>
 
+    </app-header>
+    <mat-sidenav-container class="example-container">
+      <mat-sidenav-content (click)="sidenav.close()">
+        <router-outlet class="row p-0 m-0"> 
+    
+        </router-outlet>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+    <app-footer>
+        
+    </app-footer>
+</ng-container>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  options: FormGroup;
+  public menu:Array<string> = ["Empleados","Soliucitud","Rutas","Clientes","Piezas", "Dep. y Secc."]
+  constructor(fb: FormBuilder) {
+   this.options = fb.group({
+
+     fixed: false,
+
+   });
+ }
+  
 
   ngOnInit() {
   }

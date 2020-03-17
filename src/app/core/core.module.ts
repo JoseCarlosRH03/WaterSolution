@@ -5,6 +5,8 @@ import { FooterComponent } from './Components/Shell/footer/footer.component';
 import { HeaderComponent } from './Components/Shell/header/header.component';
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from '../shared/shared.module';
+import { LoginModule } from './login/login.module';
+
 
 
 
@@ -14,6 +16,7 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [ShellComponent, MainComponent, FooterComponent, HeaderComponent],
   imports: [
     PagesModule,
+    LoginModule,
     SharedModule,
 
   ]

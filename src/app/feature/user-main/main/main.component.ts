@@ -7,17 +7,13 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  options: FormGroup;
-   public menu:Array<string> = ["Empleados","Soliucitud","Rutas","Clientes","Piezas", "Dep. y Secc."]
-   constructor(fb: FormBuilder) {
-    this.options = fb.group({
-
-      fixed: true,
-
-    });
+ 
+   constructor() {
+   
   }
    
   ngOnInit() {
+ 
   }
   
 }

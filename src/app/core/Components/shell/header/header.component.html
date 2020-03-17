@@ -1,1 +1,18 @@
-<p>header works!</p>
+<div class="container-fluid m-0 p-0 shadow-sm">
+    <mat-toolbar class="col-12 shadow-sm">
+        <mat-toolbar-row>
+          <button mat-icon-button>
+            <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+          </button>
+          <h1>WaterSolution</h1>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <mat-sidenav #sidenav mode="side"  class="example-sidenav shadow-sm" (click)="sidenav.toggle()" [fixedInViewport]="options.value.fixed">
+        <mat-nav-list >
+            <h3 class="m-4">Opciones</h3>
+            <hr>
+            <a mat-list-item  *ngFor="let options of menu" [routerLink]="'/Main/UserMain/UserPerFil'" class="shadow-sm align-self-center enlaces">{{ options }} </a>
+        </mat-nav-list>
+    </mat-sidenav>
+</div>
+
