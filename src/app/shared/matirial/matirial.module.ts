@@ -15,7 +15,10 @@ import * as material from '@angular/material';
    material.MatButtonModule,
    material.MatSidenavModule,
    material.MatGridListModule,
-   material.MatListModule
+   material.MatListModule,
+   material.MatFormFieldModule,
+   material.MatSnackBarModule, 
+
   ],
   exports: [
     material.MatInputModule,
@@ -24,7 +27,10 @@ import * as material from '@angular/material';
     material.MatButtonModule,
     material.MatSidenavModule,
     material.MatGridListModule,
-    material.MatListModule
+    material.MatListModule,
+    material.MatFormFieldModule,
+    material.MatSnackBarModule, 
+
   ]
 })
 export class MatirialModule { }

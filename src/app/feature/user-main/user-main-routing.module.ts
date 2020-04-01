@@ -2,13 +2,16 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main/main.component';
 import { UserPerfilComponent } from './user-perfil/user-perfil.component';
-
+import { UserCreateComponent } from './user-create/user-create.component';
+import { LoginGuard } from '../../shared/Guards/login.guard';
 
 
 const routes: Routes = [
-  {path:'', component:MainComponent, 
+  { path:'', component:MainComponent, 
+    canActivate:[LoginGuard],
     children:[
       {path:'UserPerFil', component:UserPerfilComponent},
+      {path:'UserCreate', component:UserCreateComponent},
     ]
   }
  

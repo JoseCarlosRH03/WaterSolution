@@ -9,11 +9,13 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 export class HeaderComponent implements OnInit {
 
   options: FormGroup;
-  public menu:Array<string> = ["Empleados","Soliucitud","Rutas","Clientes","Piezas", "Dep. y Secc."]
+  public menu:Array<object> = [
+    {'options':'Perfil','link':'/Main/UserMain/UserPerFil'},{'options':'Empleados','link':'/Main/UserMain/UserCreate'}
+  ]
   constructor(fb: FormBuilder) {
    this.options = fb.group({
 
-     fixed: false,
+    fixed: false,
 
    });
  }

@@ -1,16 +1,116 @@
-<div class="row h-75 w-100">
-    <div class="rounded-sm bg-danger col-12 m-1 h-100">
-        <div class="col-md-5  h-75 bg-dark">
-            aqui
-        </div>
-        <div class="col-md-5 h-75 bg-info m-2">
-            <div class="col-md-12  bg-success">
-                aqui2
+<div class="row h-100 m-0 p-0 align-items-center justify-content-center mat-accent">  
+    <form  [formGroup]="_service.EmpleadoForm" class="row h-auto">
+        <div class="col-md-5  col-11 h-75 cuadros  shadow-lg p-3 bg-white m-auto">
+            <div class="col-2 offset-10 d-inline">
+                <button type="button" class="btn btn-danger rounded-circle d-inline" [routerLink]="'/Main/UserMain'">X</button>
             </div>
-            <div class="col-md-12 bg-warning">
-                aqui3
+            <div class="row h-25">
+                <img src="../../../../assets/descarga.jfif" alt="..." class="mx-auto rounded h-25">
+            </div>
+            <div class="row h-auto">
+                <h4 class="col-12 text-center">Datos Personales</h4>
+                <hr class="col-md-11 col-9 ">
+            </div>
+            <div class="row h-auto">
+                <div class="col-md-12 col-11 col-lg-6 mb-1 ml-4 ml-lg-0 ">
+                    <mat-form-field class="example-full-width col-12">
+                        <mat-label>Nombre(s)</mat-label>
+                        <input matInput formControlName="nombreEmpleado">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12 col-11 ml-4  col-lg-6 ml-lg-0">
+                    <mat-form-field class="example-full-width col-12">
+                        <mat-label>Apellidos</mat-label>
+                        <input matInput formControlName="apellidosEmpleado" class="d-inline">
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <div class="row h-auto"> 
+                <div class="col-md-12 col-11 col-lg-6 mb-1 ml-4 ml-lg-0 ">
+                    <mat-form-field class="example-full-width col-12">
+                        <mat-label>Cedula</mat-label>
+                        <input matInput formControlName="cedulaEmpleado">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-12 col-11 col-lg-6 mb-1 ml-4 ml-lg-0 ">
+                    <mat-form-field class="example-full-width col-12">
+                        <mat-label>Telefono</mat-label>
+                        <input matInput formControlName="telefornoEmpleado">
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <div class="row h-auto"> 
+                <div class="col-11 ml-4 ml-lg-0">
+                    <mat-form-field class="example-full-width col-12">
+                        <mat-label>Direccion</mat-label>
+                        <input matInput formControlName="direccionEmpleado">
+                    </mat-form-field>
+                </div>
             </div>
         </div>
-    </div>
+        <div class="col-md-5 h-auto m-2 pt-md-4 mat-accent pb-md-2">
+            <div class="col-md-12 col-12 mt-auto h-auto  cuadros shadow-lg p-3 bg-white">
+                <div class="row">
+                    <h4 class="col-12 text-center">Datos del Empleo</h4>
+                    <hr class="col-md-11 col-9 ">
+                </div>
+                <div class="row ">
+                    <div class="col-md-12 col-11 col-lg-6 mb-1 ml-4 ml-lg-0 ">
+                        <mat-form-field class="example-full-width col-12">
+                            <mat-label>Departamento</mat-label>
+                            <input matInput formControlName="nombreDepartamento">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-12 col-11 ml-4  col-lg-6 ml-lg-0">
+                        <mat-form-field class="example-full-width col-12">
+                            <mat-label>Seccion</mat-label>
+                            <input matInput formControlName="nombreSeccion">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <br>
+                <div class="row ">
+                    <div class="col-md-12 col-11 col-lg-6 mb-1 ml-4 ml-lg-0 ">
+                        <mat-form-field class="example-full-width col-12">
+                            <mat-label>Cargo</mat-label>
+                            <input matInput formControlName="nombreCargo">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <br>
+            </div>
+            <div class="col-md-12 col-12 mt-2 h-auto  cuadros shadow-lg p-3 bg-white">
+                <div class="row">
+                    <h4 class="col-12 text-center">Datos de Usuario</h4>
+                    <hr class="col-md-11 col-9 ">
+                </div>
+                <div class="row ">
+                    <div class="col-md-12 col-11 col-lg-6 mb-1 ml-4 ml-lg-0 ">
+                        <mat-form-field class="example-full-width col-12">
+                            <mat-label>Nombre User</mat-label>
+                            <input matInput formControlName="nombreUsuario">
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-12 col-11 col-lg-6 mb-1 ml-4 ml-lg-0 ">
+                        <mat-form-field class="example-full-width col-12">
+                            <mat-label>Fecha</mat-label>
+                            <input matInput formControlName="fechaEmpleado">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <br>
+                <div class="row ">
+                    <div class="col-md-12 col-11 ml-4  col-lg-6 ml-lg-0">
+                        <mat-form-field class="example-full-width col-12">
+                            <mat-label>Rol</mat-label>
+                            <input matInput formControlName="nombreRole">
+                        </mat-form-field>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>                          
+    </form>
 </div>
-

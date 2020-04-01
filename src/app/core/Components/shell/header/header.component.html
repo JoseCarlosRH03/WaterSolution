@@ -11,7 +11,7 @@
         <mat-nav-list >
             <h3 class="m-4">Opciones</h3>
             <hr>
-            <a mat-list-item  *ngFor="let options of menu" [routerLink]="'/Main/UserMain/UserPerFil'" class="shadow-sm align-self-center enlaces">{{ options }} </a>
+            <a mat-list-item  (click)="sidenav.toggle()" *ngFor="let options of menu" [routerLink]="options.link" class="shadow-sm align-self-center enlaces">{{ options.options }} </a>
         </mat-nav-list>
     </mat-sidenav>
 </div>
