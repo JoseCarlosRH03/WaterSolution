@@ -1,0 +1,52 @@
+<div class="row h-auto m-0 p-0 align-items-center justify-content-center mat-accent mt-5 mb-3" >  
+    <form  [formGroup]="this._clienteService.SolicitudForm" class="cuadros  shadow-lg p-3 bg-white m-auto mt-auto col-11">
+        <h4 class="col-12 text-center"><i class="fas fa-user"></i> Solicitud</h4>
+        <hr class="col-11">
+        <div class="row ">
+            <div class="col-12 ">
+                <h6 class="col-12"> <i class="fas fa-address-card"></i>  Datos</h6>
+                <mat-form-field class="col-6 col-lg-3" >        
+                <mat-label>Fecha</mat-label>
+                    <input matInput [matDatepicker]="picker2" formControlName="Fecha" readonly>
+                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                    <mat-datepicker #picker2></mat-datepicker>
+                </mat-form-field>
+                <mat-form-field class="col-6 col-lg-3">
+                    <mat-label>Departamento</mat-label>
+                    <mat-select >
+                      <mat-option *ngFor="let departamento of Departamentos" (click)="Change(departamento.secciones)" value="{{departamento.idDepartamento}}" >
+                        {{departamento.nombreDepartamento}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="col-6 col-lg-3">
+                <mat-label>Seccion</mat-label>
+                    <mat-select formControlName="SeccionId">
+                      <mat-option *ngFor="let Seccion of secciones" value="{{Seccion.idSeccion}}">
+                        {{Seccion.nombreSeccion}}
+                      </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="col-6 col-lg-3">
+                    <input matInput type="text" placeholder="Sector" formControlName="Sector">
+                </mat-form-field>  
+                <mat-form-field class="col-6 col-lg-5">
+                    <input matInput type="text" placeholder="Direccion de Solicitud" formControlName="DireccionSolicitud">
+                </mat-form-field> 
+                <mat-form-field class="example-full-width col-6 col-lg-5">
+                    <mat-label>Message</mat-label>
+                    <input matInput #message maxlength="256" placeholder="Ex. I need help with..." formControlName="Descripcion">
+                    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                  </mat-form-field>  
+                <div class="col-6 col-lg-5">
+                   <p>Todos los campos son requeridos</p>
+                </div>      
+            </div> 
+        </div>
+        <div class="row justify-content-center">
+            <br>
+            <button mat-raised-button class="bg-info col-3 m-1" (click)='Enviar()' >Enviar</button>
+            <button mat-raised-button class="bg-warning col-3 m-1" (click)='Cancelar()'>Canselar</button>
+        </div>
+    </form>
+</div>

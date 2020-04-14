@@ -10,10 +10,12 @@ import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 })
 export class UserPerfilComponent implements OnInit {
  
+  fecha: Date; 
+   
   constructor( private _service:LoginService, private fb: FormBuilder ) { 
 
     this._service.ValEMpleado$.subscribe( val =>{
-
+        this.fecha = val.fechaEmpleado;
       this._service.EmpleadoForm.setValue({
         nombreUsuario: val.nombreUsuario,
         nombreEmpleado: val.nombreEmpleado,

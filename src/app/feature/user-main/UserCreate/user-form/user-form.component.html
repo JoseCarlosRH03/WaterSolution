@@ -1,0 +1,75 @@
+ <form  [formGroup]="_EmpleadoService.EmpleadosForm" class="cuadros  shadow-lg col-11 m-auto bg-white">
+    <h4 class="col-12 text-center pt-2"><i class="fas fa-user"></i> Empleado</h4>
+    <hr class="col-11">
+    <div class="row ">
+        <div class="col-12 ">
+            <h6 class="col-12"> <i class="fas fa-address-card"></i>  Datos Personales</h6>
+            <mat-form-field class="col-6 col-lg-3">
+                <input matInput type="text" placeholder="Nombre(s)" formControlName="nombreEmpleado">
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-3">
+                <input matInput type="text" placeholder="Apellidos" formControlName="apellidosEmpleado">
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-3">
+                <input matInput type="text" placeholder="Cedula" formControlName="cedulaEmpleado">
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-3">
+                <input matInput type="text" placeholder="Telefono" formControlName="telefonoEmpleado">
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-3" >        
+            <mat-label>Fecha</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="fechaEmpleado" readonly>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field> 
+            <mat-form-field class="col-6 col-lg-5">
+                <input matInput type="text" placeholder="Direccion" formControlName="direccionEmpleado">
+            </mat-form-field>             
+        </div> 
+    </div>
+    <div class="row  mt-3">
+        <div class="col-12">
+            <h6 class="col-12"><i class="fas fa-briefcase"></i>  Datos laborales</h6>
+            <mat-form-field class="col-6 col-lg-3">
+                <mat-label>Departamento</mat-label>
+                <mat-select [(value)]="this._EmpleadoService.selected">
+                    <mat-option *ngFor="let departamento of this._EmpleadoService.Departamentos" (click)="Change(departamento.secciones)" value="{{departamento.idDepartamento}}" >
+                    {{departamento.nombreDepartamento}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-3">
+            <mat-label>Seccion</mat-label>
+                <mat-select formControlName="seccionIdSeccion" >
+                    <mat-option *ngFor="let Seccion of this._EmpleadoService.secciones" value="{{Seccion.idSeccion}}">
+                    {{Seccion.nombreSeccion}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-3">
+                <mat-label>Cargo</mat-label>
+                <mat-select formControlName="cargoidCargo">
+                    <mat-option *ngFor="let cargo of this._EmpleadoService.cargos" value="{{cargo.idCargo}}" >
+                    {{cargo.nombreCargo}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div formGroupName="usuario" class="row mt-3">
+        <div class="col-12">
+            <h6 class="col-12"> <i class="fas fa-map-marked"></i>  Usuario</h6>
+            <mat-form-field class="col-6 col-lg-3">
+                <input matInput type="text" placeholder="Usuario" formControlName="NombreUsuario">
+            </mat-form-field>        
+            <mat-form-field class="col-6 col-lg-3">
+                <input matInput type="text" placeholder="Contraseña" formControlName="PasswordUsuario" type="password">
+            </mat-form-field>            
+        </div>
+    </div>
+    <div class="row justify-content-center pb-2">
+        <button mat-raised-button class="bg-info col-3 m-1" (click)='Enviar()'>Enviar</button>
+        <button mat-raised-button class="bg-warning col-3 m-1" (click)='Cancelar()'>Canselar</button>
+    </div>
+</form>
+

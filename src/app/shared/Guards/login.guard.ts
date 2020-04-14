@@ -16,10 +16,9 @@ export class LoginGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-      return (!this._services == null && this._services.ValEMpleado$.pipe( 
-        map( val=>{ return (!val.cedulaEmpleado == null)?true:false})))
-     
-   
+      return (this._services !== null && this._services.ValEMpleado$.pipe( 
+        map( val=>{ return (val.cedulaEmpleado !== null)?true:false})))
+         
   }
   
 }

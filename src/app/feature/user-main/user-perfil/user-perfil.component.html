@@ -4,9 +4,6 @@
             <div class="col-2 offset-10 d-inline">
                 <button type="button" class="btn btn-danger rounded-circle d-inline" [routerLink]="'/Main/UserMain'">X</button>
             </div>
-            <div class="row h-25">
-                <img src="../../../../assets/descarga.jfif" alt="..." class="mx-auto rounded h-25">
-            </div>
             <div class="row h-auto">
                 <h4 class="col-12 text-center">Datos Personales</h4>
                 <hr class="col-md-11 col-9 ">
@@ -65,17 +62,18 @@
                     </div>
                     <div class="col-md-12 col-11 ml-4  col-lg-6 ml-lg-0">
                         <mat-form-field class="example-full-width col-12">
-                            <mat-label>Seccion</mat-label>
-                            <input matInput formControlName="nombreSeccion">
+                            
+                            <mat-label>Cargo</mat-label>
+                            <input matInput formControlName="nombreCargo">
                         </mat-form-field>
                     </div>
                 </div>
                 <br>
                 <div class="row ">
-                    <div class="col-md-12 col-11 col-lg-6 mb-1 ml-4 ml-lg-0 ">
+                    <div class="col-md-12 col-11 col-lg-10 mb-1 ml-4 ml-lg-0 ">
                         <mat-form-field class="example-full-width col-12">
-                            <mat-label>Cargo</mat-label>
-                            <input matInput formControlName="nombreCargo">
+                            <mat-label>Seccion</mat-label>
+                            <input matInput formControlName="nombreSeccion">
                         </mat-form-field>
                     </div>
                 </div>
@@ -93,10 +91,13 @@
                             <input matInput formControlName="nombreUsuario">
                         </mat-form-field>
                     </div>
+                   
                     <div class="col-md-12 col-11 col-lg-6 mb-1 ml-4 ml-lg-0 ">
                         <mat-form-field class="example-full-width col-12">
                             <mat-label>Fecha</mat-label>
-                            <input matInput formControlName="fechaEmpleado">
+                            <input matInput [matDatepicker]="picker" value="{{fecha}}">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
                     </div>
                 </div>

@@ -10,7 +10,10 @@ export class HeaderComponent implements OnInit {
 
   options: FormGroup;
   public menu:Array<object> = [
-    {'options':'Perfil','link':'/Main/UserMain/UserPerFil'},{'options':'Empleados','link':'/Main/UserMain/UserCreate'}
+    {'options':'Perfil','link':'/Main/UserMain/UserPerFil'},
+    {'options':'Empleados','link':'/Main/UserMain/UserCreate'},
+    {'options':'Clientes','link':'/Main/Clientes/Create'},
+    {'options':'Solicitudes','link':'/Main/Clientes/SolicitudCreate'}
   ]
   constructor(fb: FormBuilder) {
    this.options = fb.group({

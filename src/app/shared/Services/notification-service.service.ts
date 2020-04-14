@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,4 +25,5 @@ export class NotificationServiceService {
     this.config['panelClass'] = ['notification','warn'];
     this.snackBar.open(msg,'',this.config );
   }
+
 }

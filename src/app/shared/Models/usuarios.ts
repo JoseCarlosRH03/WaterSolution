@@ -1,7 +1,7 @@
-export class Usuarios {
+export interface Usuarios {
 
-    public  IdUsuario:number
-    public  NombreUsuario:string
-    public  PasswordUsuario:string
-    public  EstadoUsuario:boolean
+      IdUsuario:number
+      NombreUsuario:string
+      PasswordUsuario:string
+      EstadoUsuario:boolean
 }

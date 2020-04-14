@@ -4,11 +4,12 @@ import { MainComponent } from './main/main.component';
 import { UserPerfilComponent } from './user-perfil/user-perfil.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { LoginGuard } from '../../shared/Guards/login.guard';
+import { UserFormComponent } from './UserCreate/user-form/user-form.component';
 
 
 const routes: Routes = [
   { path:'', component:MainComponent, 
-    canActivate:[LoginGuard],
+    //canActivate:[LoginGuard],
     children:[
       {path:'UserPerFil', component:UserPerfilComponent},
       {path:'UserCreate', component:UserCreateComponent},

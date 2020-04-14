@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
 import { FeatureRoutingModule } from './feature-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { UserMainModule } from './user-main/user-main.module';
 
 
 
@@ -10,6 +9,7 @@ import { SharedModule } from '../shared/shared.module';
 @NgModule({
   declarations: [],
   imports: [
+    UserMainModule,
     FeatureRoutingModule,
     SharedModule,
   ]

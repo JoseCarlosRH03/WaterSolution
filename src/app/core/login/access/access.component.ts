@@ -23,7 +23,7 @@ export class AccessComponent implements OnInit {
    
   Adceder(){
     var valores = this._LoginSevice.loginForm.value; 
-
+  
     if(this._LoginSevice.loginForm.valid){
       this._LoginSevice.Empleado(valores.UserName , valores.PassWord);
   
@@ -37,7 +37,7 @@ export class AccessComponent implements OnInit {
     }else{
       this.succes = false;
     }
-  
+   
    if(!this.succes){
      this._Notification.warn('Verifique que todos los datos estén correcto');
    }

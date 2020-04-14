@@ -18,7 +18,11 @@ import * as material from '@angular/material';
    material.MatListModule,
    material.MatFormFieldModule,
    material.MatSnackBarModule, 
-
+   material.MatTableModule,
+   material.MatPaginatorModule,
+   material.MatDatepickerModule,
+   material.MatSelectModule,
+   material.MatDialogModule
   ],
   exports: [
     material.MatInputModule,
@@ -30,7 +34,11 @@ import * as material from '@angular/material';
     material.MatListModule,
     material.MatFormFieldModule,
     material.MatSnackBarModule, 
-
+    material.MatTableModule,
+    material.MatPaginatorModule,
+    material.MatDatepickerModule,
+    material.MatSelectModule,
+    material.MatDialogModule
   ]
 })
 export class MatirialModule { }

@@ -1,0 +1,9 @@
+.cuadros{
+    border-radius: 25px;
+}
+
+.option:hover{
+    cursor: pointer;
+    background-color:#EBB61A ;
+    border-radius: 15px;
+}

@@ -9,10 +9,10 @@ import { LoginService } from './shared/Services/login.service';
 import {HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NotificationServiceService } from './shared/Services/notification-service.service';
-
-
-
-
+import { MatNativeDateModule } from '@angular/material';
+import { EmpleadoServiceService } from './shared/Services/empleado-service.service';
+import { ClienteSolicitudesService } from './shared/Services/cliente-solicitudes.service';
+import { UserFormComponent } from './feature/user-main/UserCreate/user-form/user-form.component';
 
 
 @NgModule({
@@ -27,12 +27,18 @@ import { NotificationServiceService } from './shared/Services/notification-servi
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    
+    MatNativeDateModule,
   ],
   providers: [
     LoginService,
-    NotificationServiceService
+    NotificationServiceService,
+    EmpleadoServiceService,
+    ClienteSolicitudesService
+
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+    
+    
+
 })
 export class AppModule { }
