@@ -63,7 +63,7 @@ export class UserFormComponent implements OnInit {
   }
 
   Change(secciones){
-    this.secciones = secciones
+    this._EmpleadoService.secciones = secciones
   }
 
   Cancelar(){
