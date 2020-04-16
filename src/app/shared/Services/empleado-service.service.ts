@@ -26,9 +26,7 @@ export class EmpleadoServiceService {
   selected = '';
   constructor(private _http:HttpClient, private fb: FormBuilder) { 
 
-    this.GetListEmpleados$().subscribe( valor =>{
-      this.lista.emit(valor);
-   });
+    this.starList();
   
   }
 
@@ -50,7 +48,11 @@ export class EmpleadoServiceService {
     return   this._http.put<Empleados>(`${this.LoginURL}/${data.idEmpleado}`,data);
   }
 
- 
+ starList(){
+  this.GetListEmpleados$().subscribe( valor =>{
+    this.lista.emit(valor);
+ });
+ }
   SetValueForm(){
     this.GetFormEmpleados$().subscribe(val => {
       this.cargos = val.cargos

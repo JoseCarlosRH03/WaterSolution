@@ -16,10 +16,8 @@ export class ClienteSolicitudesService {
 
   constructor( private _http: HttpClient) { 
 
-    this.listClientes$().subscribe( data => {
-      this.listclienteData.emit(data) ;
-    })
-
+   this.starList()
+   
   }
  
   saveCliente$(data):Observable<Cliente>{
@@ -34,6 +32,11 @@ export class ClienteSolicitudesService {
     return  this._http.get<SolicitudDTO>(`${this.URL}/MostrarClientes/${id}`);
   }
 
+  starList(){
+    this.listClientes$().subscribe( data => {
+      this.listclienteData.emit(data) ;
+    })
+  }
   ClientesForm: FormGroup  = new FormGroup({
     personaId: new FormControl(0),
     nombre:  new FormControl('', Validators.required),

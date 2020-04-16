@@ -1,9 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Cliente } from 'src/app/shared/Models/cliente';
 import { ClienteSolicitudesService } from 'src/app/shared/Services/cliente-solicitudes.service';
-import { MatTableDataSource, MatPaginator, MatSort, MatDialogConfig, MatDialog } from '@angular/material';
+import { MatTableDataSource, MatDialogConfig, MatDialog } from '@angular/material';
 import { CreateClienteComponent } from '../create-cliente/create-cliente.component';
-
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
 
 @Component({
   selector: 'app-list-cliente',
@@ -24,24 +25,25 @@ export class ListClienteComponent implements OnInit {
 
   constructor( private _clienteServices: ClienteSolicitudesService,  private dialog:MatDialog) 
     {
+      this._clienteServices.starList();
       this._clienteServices.listclienteData.subscribe( val =>{
-        this.dataSource = val
+        this.dataSource.data = val
       })
        
     }
 
-  ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
-  applyFilter(filterValue: string) {
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    ngOnInit() {
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     }
-  }
+  
+    applyFilter(filterValue: string) {
+      this.dataSource.filter = filterValue.trim().toLowerCase();
+  
+      if (this.dataSource.paginator) {
+        this.dataSource.paginator.firstPage();
+      } 
+    }
 
   buscarSolicitud(row){
    this._clienteServices. getSolicitudesCliente$(row.personaId).subscribe( data =>{
