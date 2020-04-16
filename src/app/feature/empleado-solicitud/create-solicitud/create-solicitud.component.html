@@ -7,7 +7,7 @@
                 <h6 class="col-12"> <i class="fas fa-address-card"></i>  Datos</h6>
                 <mat-form-field class="col-6 col-lg-3" >        
                 <mat-label>Fecha</mat-label>
-                    <input matInput [matDatepicker]="picker2" formControlName="Fecha" readonly>
+                    <input matInput [matDatepicker]="picker2" formControlName="fecha" readonly>
                     <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
                     <mat-datepicker #picker2></mat-datepicker>
                 </mat-form-field>
@@ -21,21 +21,21 @@
                 </mat-form-field>
                 <mat-form-field class="col-6 col-lg-3">
                 <mat-label>Seccion</mat-label>
-                    <mat-select formControlName="SeccionId">
+                    <mat-select formControlName="seccionId">
                       <mat-option *ngFor="let Seccion of secciones" value="{{Seccion.idSeccion}}">
                         {{Seccion.nombreSeccion}}
                       </mat-option>
                     </mat-select>
                 </mat-form-field>
                 <mat-form-field class="col-6 col-lg-3">
-                    <input matInput type="text" placeholder="Sector" formControlName="Sector">
+                    <input matInput type="text" placeholder="Sector" formControlName="sector">
                 </mat-form-field>  
                 <mat-form-field class="col-6 col-lg-5">
-                    <input matInput type="text" placeholder="Direccion de Solicitud" formControlName="DireccionSolicitud">
+                    <input matInput type="text" placeholder="Direccion de Solicitud" formControlName="direccionSolicitud">
                 </mat-form-field> 
                 <mat-form-field class="example-full-width col-6 col-lg-5">
                     <mat-label>Message</mat-label>
-                    <input matInput #message maxlength="256" placeholder="Ex. I need help with..." formControlName="Descripcion">
+                    <input matInput #message maxlength="256" placeholder="Ex. I need help with..." formControlName="descripcion">
                     <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
                   </mat-form-field>  
                 <div class="col-6 col-lg-5">

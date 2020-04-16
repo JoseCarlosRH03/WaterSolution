@@ -1,8 +1,11 @@
-export class Ruta {
+import { Empleados } from './empleados'
 
-    public RutaId:number
-    public Fecha:Date
+export interface Ruta {
 
-    //public Solicitudes: Array<Solisitudes>[]
+    rutaId:number
+    fecha:Date
+    idEmpleado:number
+    empleado:Empleados
+   
 
 }

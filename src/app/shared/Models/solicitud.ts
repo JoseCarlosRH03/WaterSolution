@@ -1,21 +1,21 @@
 import { Cliente } from './cliente'
+import { RutaSolicitud } from './ruta-solicitud'
+import { Secciones } from './secciones'
+import { Cotizacion } from './cotizacion'
 
-export class Solicitud {
+export interface Solicitud {
 
-    SolicitudId:number 
-    Descripcion:string 
-    DireccionSolicitud:string 
-    Sector:string  
-    Fecha:Date 
-    Estado:boolean 
-    TipoSolicitud: string   
-    SeccionId: number 
-    PersonaId: number
-
+    solicitudID:number 
+    descripcion:string 
+    direccionSolicitud:string 
+    sector:string  
+    fecha:Date 
+    estado:boolean 
+    tipoSolicitud: string   
+    seccionID: number 
+    personaId: number
     Persona:Cliente
-   // Cotizaciones: Cotizaciones[] 
-   // RutaSolicitud: RutaSolicitud[] 
-
-
-
+    seccion:Secciones
+    cotizaciones:Cotizacion[]
+    RutaSolicitud:RutaSolicitud[]
 }

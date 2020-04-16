@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CreateClienteComponent } from './create-cliente/create-cliente.component';
 import { CreateSolicitudComponent } from './create-solicitud/create-solicitud.component';
+import { ListClienteComponent } from './list-cliente/list-cliente.component';
 
 
 const routes: Routes = [
-  {path:'Create', component:CreateClienteComponent },
+  {path:'Create', component:ListClienteComponent },
   {path:'SolicitudCreate', component: CreateSolicitudComponent},
 ];
 

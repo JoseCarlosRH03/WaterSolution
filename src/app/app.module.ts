@@ -12,12 +12,13 @@ import { NotificationServiceService } from './shared/Services/notification-servi
 import { MatNativeDateModule } from '@angular/material';
 import { EmpleadoServiceService } from './shared/Services/empleado-service.service';
 import { ClienteSolicitudesService } from './shared/Services/cliente-solicitudes.service';
-import { UserFormComponent } from './feature/user-main/UserCreate/user-form/user-form.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -33,7 +34,8 @@ import { UserFormComponent } from './feature/user-main/UserCreate/user-form/user
     LoginService,
     NotificationServiceService,
     EmpleadoServiceService,
-    ClienteSolicitudesService
+    ClienteSolicitudesService,
+    
 
   ],
   bootstrap: [AppComponent],

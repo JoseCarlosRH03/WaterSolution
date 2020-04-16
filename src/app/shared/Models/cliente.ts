@@ -1,11 +1,11 @@
 export interface Cliente {
 
-    PersonaId: number 
-    Nombre: string 
-    Apellidos: string 
-    Cedula: string
-    Direccion: string 
-    Telefono: string
-    Fecha: string 
+    personaId: number 
+    mombre: string 
+    apellidos: string 
+    cedula: string
+    direccion: string 
+    telefono: string
+    fecha: string 
 
 }
