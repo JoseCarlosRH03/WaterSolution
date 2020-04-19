@@ -6,7 +6,7 @@ import { Seguimientos } from './seguimientos'
 
 export interface Solicitud {
 
-    solicitudID:number 
+    solicitudId:number 
     descripcion:string 
     direccionSolicitud:string 
     sector:string  

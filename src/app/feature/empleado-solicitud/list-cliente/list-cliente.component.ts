@@ -52,6 +52,7 @@ export class ListClienteComponent implements OnInit {
 
   buscarSolicitud(row){
    this._clienteServices.getSolicitudesCliente$(row.personaId).subscribe( data =>{
+    this._clienteServices.idPersona = row.personaId
     this._clienteServices.listSolicitudesDTO.emit(data)
    })
    const config = new MatDialogConfig();

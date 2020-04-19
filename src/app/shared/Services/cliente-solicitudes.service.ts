@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Cliente } from '../Models/cliente';
 import { HttpClient } from '@angular/common/http';
 import { of, Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators';
 import { SolicitudDTO } from '../InterfaceDTO/solicitud-dto';
 import { Solicitud } from '../Models/solicitud';
 import { CotizacionesDTO } from '../InterfaceDTO/cotizaciones-dto';
@@ -17,6 +16,7 @@ import { EmpleadoServiceService } from './empleado-service.service';
 })
 export class ClienteSolicitudesService {
   private URL = `https://localhost:44329/api/Cliente`;
+  private SolicitudURL = `https://localhost:44329/api/Solicitud`;
   listclienteData:  EventEmitter<Cliente[]> = new EventEmitter()
   listSolicitudesDTO:  EventEmitter<SolicitudDTO[]> = new EventEmitter()
   cotizacion: EventEmitter<CotizacionesDTO> = new EventEmitter();
@@ -25,8 +25,10 @@ export class ClienteSolicitudesService {
   secciones:Secciones[] = [];
   dep = '';
   idDepartamento = '';
-  solicitudEstado = ['Pendiente por Ruta', 'En ruta','cancelado', 'En cotizacion', 'Completado', 'Pendiente de Pago'];
-  tipoSolicitud =['intalacion', 'reparacion', 'Cotizacion'];
+  solicitudEstado = ['Pendiente por Ruta', 'En ruta','cancelado', 'En cotizacion', 'Completado', 'Pendiente de Pago', 'Pendiente por Cotizacion'];
+  tipoSolicitud =['Instalacion', 'Reparacion', 'Cotizacion'];
+  idPersona
+
   constructor( private _http: HttpClient,private _EmpleadoService:EmpleadoServiceService) { 
 
    this.starList()
@@ -43,6 +45,14 @@ export class ClienteSolicitudesService {
 
   getSolicitudesCliente$(id:number):Observable<SolicitudDTO[]>{
     return  this._http.get<SolicitudDTO[]>(`${this.URL}/MostrarClientes/${id}`);
+  }
+
+  setSolicitud$(data:Solicitud):Observable<Solicitud>{
+    return this._http.post<Solicitud>(`${this.SolicitudURL}`,data);
+  } 
+
+  upDateSolicitud$(data:Solicitud):Observable<Solicitud>{
+    return   this._http.put<Solicitud>(`${this.SolicitudURL}/${data.solicitudId}`,data);
   }
 
   starList(){

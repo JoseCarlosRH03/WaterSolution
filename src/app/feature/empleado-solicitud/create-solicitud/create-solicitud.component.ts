@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteSolicitudesService } from 'src/app/shared/Services/cliente-solicitudes.service';
 import { NotificationServiceService } from 'src/app/shared/Services/notification-service.service';
-import { MatDialogRef } from '@angular/material';
+
 
 
 @Component({
@@ -32,11 +32,27 @@ export class CreateSolicitudComponent implements OnInit {
       this._Notification.warn('Verifique que todos los datos estén correcto');
     }else{
       if(this._clienteService.SolicitudForm.get('solicitudId').value === 0){
-        console.log('formulario crear', this._clienteService.SolicitudForm.value)
+      this._clienteService.SolicitudForm.patchValue({
+        personaId:this._clienteService.idPersona
+      })
+        this._clienteService.setSolicitud$(this._clienteService.SolicitudForm.value)
+        .subscribe(val =>{
+          this._clienteService.getSolicitudesCliente$(val.personaId).subscribe( data =>{
+            this._clienteService.listSolicitudesDTO.emit(data)
+          })
+          this._Notification.success('Solicitud Creada Correctamente')
+        })
       }else{
-        console.log('formulario update', this._clienteService.SolicitudForm.value)
+        this._clienteService.upDateSolicitud$(this._clienteService.SolicitudForm.value)
+        .subscribe(val =>{
+          this._clienteService.getSolicitudesCliente$(val.personaId).subscribe( data =>{
+            this._clienteService.listSolicitudesDTO.emit(data)
+            console.log("SoliditudesDTO",data);
+          })
+          this._Notification.success('Solicitud Actualizada Correctamente')
+        })
       }
-      
+      this.cerrarForm()
     }
     
   }
