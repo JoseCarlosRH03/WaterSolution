@@ -3,7 +3,7 @@ import { EmpleadoServiceService } from 'src/app/shared/Services/empleado-service
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table'
-import { EmpleadoDTO } from 'src/app/shared/Models/empleado-dto';
+import { EmpleadoDTO } from 'src/app/shared/InterfaceDTO/empleado-dto';
 import { NotificationServiceService } from 'src/app/shared/Services/notification-service.service';
 import { UserFormComponent } from '../UserCreate/user-form/user-form.component';
 import { MatDialog, MatDialogConfig } from '@angular/material';

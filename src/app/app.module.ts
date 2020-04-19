@@ -18,7 +18,6 @@ import { ClienteSolicitudesService } from './shared/Services/cliente-solicitudes
 @NgModule({
   declarations: [
     AppComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -35,8 +34,6 @@ import { ClienteSolicitudesService } from './shared/Services/cliente-solicitudes
     NotificationServiceService,
     EmpleadoServiceService,
     ClienteSolicitudesService,
-    
-
   ],
   bootstrap: [AppComponent],
     

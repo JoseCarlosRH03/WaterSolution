@@ -2,7 +2,8 @@ import { Injectable, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { EmpleadoDTO } from '../Models/empleado-dto';
+import { EmpleadoDTO } from '../InterfaceDTO/empleado-dto';
+import {Router} from "@angular/router";
 
 
 
@@ -14,12 +15,52 @@ export class LoginService {
    private LoginURL = `https://localhost:44329/api/Empleado/`;
 
     ValEMpleado$:Observable<EmpleadoDTO> = null;
+    UsuarioVal:EmpleadoDTO;
+    estoy:boolean = false;
+   constructor(private _http:HttpClient, private fb: FormBuilder,private router: Router) {
+ 
+    if(localStorage.length >0){
+      this.UsuarioVal= JSON.parse(localStorage.getItem('Usuario'));
+    }
 
-   constructor(private _http:HttpClient, private fb: FormBuilder) { }
+    if(this.GetUser() !== true){
+      this.router.navigate(['']);
+     }else{
+      if(this.GetUser()){
+        this.router.navigate(['Main/UserMain']);
+       }
+     }
+
+    }
 
     public Empleado(UserName: string, PassWord:string){ 
    
       this.ValEMpleado$ = this._http.get<EmpleadoDTO>(`${this.LoginURL}Login/${UserName}/${PassWord}`);
+
+      this.ValEMpleado$.subscribe( val =>{ 
+        
+        if(val.cedulaEmpleado !== null){
+          localStorage.setItem('Usuario', JSON.stringify(val));
+          this.loginForm.reset()
+        }
+       
+      })
+    }
+
+    GetUser(){
+      if( this.ValEMpleado$ !== null ){
+        this.ValEMpleado$.subscribe( val =>{
+          this.SetValue(val);
+        })
+        this.estoy = true
+      }else{
+        if(this.UsuarioVal){
+          this.SetValue(this.UsuarioVal)
+          this.estoy = true
+        }
+      }
+
+      return this.estoy
     }
 
     loginForm: FormGroup =  this.fb.group({
@@ -46,7 +87,21 @@ export class LoginService {
     nombreRole: new FormControl(''),
   });
 
-
+  SetValue(val){
+    this.EmpleadoForm.setValue({
+      nombreUsuario: val.nombreUsuario,
+      nombreEmpleado: val.nombreEmpleado,
+      apellidosEmpleado: val.apellidosEmpleado, 
+      cedulaEmpleado: val.cedulaEmpleado, 
+      fechaEmpleado: val.fechaEmpleado,
+      telefornoEmpleado: val.telefornoEmpleado,
+      direccionEmpleado: val.direccionEmpleado,
+      nombreSeccion: val.nombreSeccion,
+      nombreDepartamento: val.nombreDepartamento,
+      nombreCargo: val.nombreCargo,
+      nombreRole: val.nombreRole,
+      })
+  }
   
   
 }

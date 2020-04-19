@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/shared/Services/login.service';
 import { NotificationServiceService } from 'src/app/shared/Services/notification-service.service';
+import { Router } from '@angular/router';
 
 
 
@@ -15,7 +16,10 @@ export class AccessComponent implements OnInit {
 
  
 
-  constructor( private _LoginSevice:LoginService,  private _Notification: NotificationServiceService) {}
+  constructor( private _LoginSevice:LoginService,  private _Notification: NotificationServiceService, private router: Router) {
+
+    
+  }
  
   ngOnInit() {
     

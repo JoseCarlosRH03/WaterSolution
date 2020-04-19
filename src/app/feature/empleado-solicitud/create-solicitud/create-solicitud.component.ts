@@ -4,6 +4,7 @@ import { NotificationServiceService } from 'src/app/shared/Services/notification
 import { Departamentos } from 'src/app/shared/Models/departamentos';
 import { Secciones } from 'src/app/shared/Models/secciones';
 import { EmpleadoServiceService } from 'src/app/shared/Services/empleado-service.service';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-create-solicitud',
@@ -15,7 +16,11 @@ export class CreateSolicitudComponent implements OnInit {
   Departamentos:Departamentos[] = [];
   secciones:Secciones[] = [];
 
-  constructor(private _clienteService:ClienteSolicitudesService ,private _Notification: NotificationServiceService,  private _EmpleadoService: EmpleadoServiceService) {
+  constructor(private _clienteService:ClienteSolicitudesService ,
+    private _Notification: NotificationServiceService,  
+    private _EmpleadoService: EmpleadoServiceService,
+    private dialogRef:MatDialogRef<CreateSolicitudComponent>
+    ) {
 
     this._EmpleadoService.GetFormEmpleados$().subscribe(val => {
       this.Departamentos = val.departamentos;
@@ -39,13 +44,19 @@ export class CreateSolicitudComponent implements OnInit {
 
   
   Cancelar(){
-    this._clienteService.SolicitudForm.reset();
-    this._clienteService.SolicitudForm.patchValue({
-      Fecha:  new Date()
-    })
+    this.cerrarForm()
+    
   }
 
   Change(secciones){
     this.secciones = secciones
+  }
+
+  cerrarForm(){
+    this._clienteService.SolicitudForm.reset();
+    this._clienteService.SolicitudForm.patchValue({
+      Fecha:  new Date()
+    })
+    this.dialogRef.close();
   }
 }

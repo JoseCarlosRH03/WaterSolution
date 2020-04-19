@@ -22,7 +22,8 @@ import * as material from '@angular/material';
    material.MatPaginatorModule,
    material.MatDatepickerModule,
    material.MatSelectModule,
-   material.MatDialogModule
+   material.MatDialogModule,
+   material.MatTabsModule
   ],
   exports: [
     material.MatInputModule,
@@ -38,7 +39,8 @@ import * as material from '@angular/material';
     material.MatPaginatorModule,
     material.MatDatepickerModule,
     material.MatSelectModule,
-    material.MatDialogModule
+    material.MatDialogModule,
+    material.MatTabsModule
   ]
 })
 export class MatirialModule { }

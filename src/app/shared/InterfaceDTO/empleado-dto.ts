@@ -1,4 +1,4 @@
-import { PermisoRole } from './permiso-role'
+import { PermisoRole } from '../Models/permiso-role'
 
 export class EmpleadoDTO {
     idUsuario:number

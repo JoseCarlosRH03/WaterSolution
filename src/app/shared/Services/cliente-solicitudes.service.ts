@@ -4,7 +4,9 @@ import { Cliente } from '../Models/cliente';
 import { HttpClient } from '@angular/common/http';
 import { of, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { SolicitudDTO } from '../Models/solicitud-dto';
+import { SolicitudDTO } from '../InterfaceDTO/solicitud-dto';
+import { Solicitud } from '../Models/solicitud';
+import { CotizacionesDTO } from '../InterfaceDTO/cotizaciones-dto';
 
 
 @Injectable({
@@ -13,7 +15,8 @@ import { SolicitudDTO } from '../Models/solicitud-dto';
 export class ClienteSolicitudesService {
   private URL = `https://localhost:44329/api/Cliente`;
   listclienteData:  EventEmitter<Cliente[]> = new EventEmitter()
-
+  listSolicitudesDTO:  EventEmitter<SolicitudDTO[]> = new EventEmitter()
+  cotizacion: EventEmitter<CotizacionesDTO> = new EventEmitter();
   constructor( private _http: HttpClient) { 
 
    this.starList()
@@ -28,8 +31,8 @@ export class ClienteSolicitudesService {
     return  this._http.get<Cliente[]>(`${this.URL}`);
   }
 
-  getSolicitudesCliente$(id:number):Observable<SolicitudDTO>{
-    return  this._http.get<SolicitudDTO>(`${this.URL}/MostrarClientes/${id}`);
+  getSolicitudesCliente$(id:number):Observable<SolicitudDTO[]>{
+    return  this._http.get<SolicitudDTO[]>(`${this.URL}/MostrarClientes/${id}`);
   }
 
   starList(){
@@ -49,13 +52,13 @@ export class ClienteSolicitudesService {
 
   SolicitudForm: FormGroup  = new FormGroup({
     solicitudId: new FormControl(0),
-    descripcion:  new FormControl('', Validators.required),
-    direccionSolicitud:  new FormControl('', Validators.required),
-    sector: new FormControl('', Validators.required),
-    fecha:  new FormControl('', Validators.required),
-    estado: new FormControl(true, Validators.required),
+    descripcion:  new FormControl('', Validators.required),//
+    direccionSolicitud:  new FormControl('', Validators.required),//
+    sector: new FormControl('', Validators.required),//
+    fecha:  new FormControl('', Validators.required),//
+    estado: new FormControl('', Validators.required),
     tipoSolicitud:  new FormControl('', Validators.required),
-    seccionId:  new FormControl(0, Validators.required),
+    seccionId:  new FormControl('', Validators.required),
     personaId:  new FormControl(0, Validators.required),
   })
 
@@ -85,7 +88,19 @@ export class ClienteSolicitudesService {
       })
   }
   
-
+  setSolicitudesForm(row){
+    this.SolicitudForm.setValue({
+      solicitudId: row.solicitudId,
+      descripcion: row.descripcion,
+      direccionSolicitud: row.direccionSolicitud,
+      sector: row.sector,
+      fecha: row.fecha,
+      estado: row.estado,
+      tipoSolicitud: row.tipoSolicitud,
+      seccionId:row.seccion.nombreSeccion,
+      personaId: '',
+    })
+  }
 }
 
 

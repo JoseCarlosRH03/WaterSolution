@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Cliente } from 'src/app/shared/Models/cliente';
 import { ClienteSolicitudesService } from 'src/app/shared/Services/cliente-solicitudes.service';
-import { MatTableDataSource, MatDialogConfig, MatDialog } from '@angular/material';
+import { MatTableDataSource, MatDialogConfig, MatDialog, MatDialogRef } from '@angular/material';
 import { CreateClienteComponent } from '../create-cliente/create-cliente.component';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
+import { SolicitudesClientesComponent } from '../solicitudes-clientes/solicitudes-clientes.component';
 
 @Component({
   selector: 'app-list-cliente',
@@ -23,7 +24,11 @@ export class ListClienteComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor( private _clienteServices: ClienteSolicitudesService,  private dialog:MatDialog) 
+  constructor( 
+    private _clienteServices: ClienteSolicitudesService,  
+    private dialog:MatDialog,
+    
+    ) 
     {
       this._clienteServices.starList();
       this._clienteServices.listclienteData.subscribe( val =>{
@@ -47,13 +52,18 @@ export class ListClienteComponent implements OnInit {
 
   buscarSolicitud(row){
    this._clienteServices. getSolicitudesCliente$(row.personaId).subscribe( data =>{
-     console.log('data',data)
+    this._clienteServices.listSolicitudesDTO.emit(data)
    })
+   const config = new MatDialogConfig();
+    config.disableClose = true;
+    config.autoFocus = true;
+    config.width = "200%";
+    this.dialog.open(SolicitudesClientesComponent,config);
   }
 
   ModificarEmpleado(row){
     console.log("datos",row)
-   this._clienteServices.setClienteForm(row);
+    this._clienteServices.setClienteForm(row);
     const config = new MatDialogConfig();
     config.disableClose = true;
     config.autoFocus = true;
@@ -69,8 +79,6 @@ export class ListClienteComponent implements OnInit {
     config.width = "60%";
     this.dialog.open(CreateClienteComponent,config);
   }
-
-  
 
 }
 

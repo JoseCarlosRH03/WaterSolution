@@ -2,6 +2,7 @@ import { Cliente } from './cliente'
 import { RutaSolicitud } from './ruta-solicitud'
 import { Secciones } from './secciones'
 import { Cotizacion } from './cotizacion'
+import { Seguimientos } from './seguimientos'
 
 export interface Solicitud {
 
@@ -12,10 +13,12 @@ export interface Solicitud {
     fecha:Date 
     estado:boolean 
     tipoSolicitud: string   
-    seccionID: number 
+    seccionId: number 
     personaId: number
-    Persona:Cliente
+    persona:Cliente
     seccion:Secciones
     cotizaciones:Cotizacion[]
-    RutaSolicitud:RutaSolicitud[]
+    rutaSolicitud:RutaSolicitud[]
+    Seguimientos: Seguimientos[]
+
 }

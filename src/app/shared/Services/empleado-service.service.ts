@@ -1,10 +1,9 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Observable, of, Subject } from 'rxjs';
-import { EmpleadoDTO } from '../Models/empleado-dto';
+import { EmpleadoDTO } from '../InterfaceDTO/empleado-dto';
 import { HttpClient } from '@angular/common/http';
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { FormEmpleadoDTO } from '../Models/form-empleado-dto';
-import { catchError } from 'rxjs/operators';
+import { FormEmpleadoDTO } from '../InterfaceDTO/form-empleado-dto';
 import { Empleados } from '../Models/empleados';
 import { MatTableDataSource } from '@angular/material';
 import { Cargo } from '../Models/cargo';
