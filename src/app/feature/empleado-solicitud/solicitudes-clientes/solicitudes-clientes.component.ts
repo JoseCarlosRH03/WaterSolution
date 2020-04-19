@@ -49,6 +49,7 @@ export class SolicitudesClientesComponent implements OnInit {
     this._clienteService.resetSolicitudesForm();
     this._clienteService.cotizacion.emit(null) 
     this.departamento ='';
+    this._clienteService.selected = '';
     this.dialogRef.close();
   }
 

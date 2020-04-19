@@ -25,8 +25,8 @@ export class ClienteSolicitudesService {
   secciones:Secciones[] = [];
   dep = '';
   idDepartamento = '';
-
-  
+  solicitudEstado = ['Pendiente por Ruta', 'En ruta','cancelado', 'En cotizacion', 'Completado', 'Pendiente de Pago'];
+  tipoSolicitud =['intalacion', 'reparacion', 'Cotizacion'];
   constructor( private _http: HttpClient,private _EmpleadoService:EmpleadoServiceService) { 
 
    this.starList()

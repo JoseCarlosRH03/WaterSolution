@@ -28,10 +28,15 @@ export class CreateSolicitudComponent implements OnInit {
   }
 
   Enviar(){
-    if(this._clienteService.ClientesForm.invalid){
+    if(this._clienteService.SolicitudForm.invalid){
       this._Notification.warn('Verifique que todos los datos estén correcto');
     }else{
-      //this._clienteService.saveCliente$(this._clienteService.ClientesForm.value)
+      if(this._clienteService.SolicitudForm.get('solicitudId').value === 0){
+        console.log('formulario crear', this._clienteService.SolicitudForm.value)
+      }else{
+        console.log('formulario update', this._clienteService.SolicitudForm.value)
+      }
+      
     }
     
   }
