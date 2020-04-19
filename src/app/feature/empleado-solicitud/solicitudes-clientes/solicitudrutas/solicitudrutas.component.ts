@@ -23,7 +23,9 @@ export class SolicitudrutasComponent implements OnInit {
     ) {
     
     this._clienteService.cotizacion.subscribe( data =>{
+      if(data !==null){
       this.dataSource.data = data.rutaSolicitud;
+    }
     })
    }
 

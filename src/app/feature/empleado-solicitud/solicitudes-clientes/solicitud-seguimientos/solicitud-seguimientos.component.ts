@@ -23,7 +23,9 @@ export class SolicitudSeguimientosComponent implements OnInit {
     ) {
     
     this._clienteService.cotizacion.subscribe( data =>{
-      this.dataSource.data = data.seguimientos;
+      if(data !==null){
+        this.dataSource.data = data.seguimientos;
+      }
     })
    }
 

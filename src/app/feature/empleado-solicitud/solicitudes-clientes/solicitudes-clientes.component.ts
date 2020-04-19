@@ -46,16 +46,17 @@ export class SolicitudesClientesComponent implements OnInit {
   }
 
   cerrarForm(){
-    this._clienteService.SolicitudForm.reset();
+    this._clienteService.resetSolicitudesForm();
     this._clienteService.cotizacion.emit(null) 
     this.departamento ='';
     this.dialogRef.close();
   }
 
   Cargar(row){
-    this._clienteService.setSolicitudesForm(row)
-    this._clienteService.cotizacion.emit(row) 
-    this.departamento = row.seccion.departamento.nombreDepartamento
+    this._clienteService.updateSolicitudesForm(row);
+    this._clienteService.dep =  row.seccion.departamento.nombreDepartamento
+    this._clienteService.setFom();
+    this._clienteService.cotizacion.emit(row); 
   }
 
   Add(){

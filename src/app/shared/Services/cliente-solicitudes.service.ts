@@ -7,6 +7,9 @@ import { catchError } from 'rxjs/operators';
 import { SolicitudDTO } from '../InterfaceDTO/solicitud-dto';
 import { Solicitud } from '../Models/solicitud';
 import { CotizacionesDTO } from '../InterfaceDTO/cotizaciones-dto';
+import { Departamentos } from '../Models/departamentos';
+import { Secciones } from '../Models/secciones';
+import { EmpleadoServiceService } from './empleado-service.service';
 
 
 @Injectable({
@@ -17,10 +20,17 @@ export class ClienteSolicitudesService {
   listclienteData:  EventEmitter<Cliente[]> = new EventEmitter()
   listSolicitudesDTO:  EventEmitter<SolicitudDTO[]> = new EventEmitter()
   cotizacion: EventEmitter<CotizacionesDTO> = new EventEmitter();
-  constructor( private _http: HttpClient) { 
+  selected = '';
+  Departamentos:Departamentos[] = [];
+  secciones:Secciones[] = [];
+  dep = '';
+  idDepartamento = '';
+
+  
+  constructor( private _http: HttpClient,private _EmpleadoService:EmpleadoServiceService) { 
 
    this.starList()
-   
+  
   }
  
   saveCliente$(data):Observable<Cliente>{
@@ -40,6 +50,27 @@ export class ClienteSolicitudesService {
       this.listclienteData.emit(data) ;
     })
   }
+
+  setFom(){
+    this._EmpleadoService.GetFormEmpleados$().subscribe(val => {
+      this.Departamentos = val.departamentos;
+    });  
+  
+    if(this.SolicitudForm.get('seccionId').value !== 0 ){
+      var b = this.Departamentos.map( departamento => departamento.nombreDepartamento).indexOf(this.dep)
+      this.selected =  this.Departamentos[b].idDepartamento.toString()
+      this.secciones = this.Departamentos[b].secciones
+      var d = this.secciones.map( secc => secc.idSeccion).indexOf(this.SolicitudForm.get('seccionId').value)
+      this.SolicitudForm.patchValue({
+        seccionId: this.secciones[d].idSeccion.toString()
+      })
+   }
+  }
+
+
+
+
+
   ClientesForm: FormGroup  = new FormGroup({
     personaId: new FormControl(0),
     nombre:  new FormControl('', Validators.required),
@@ -58,7 +89,7 @@ export class ClienteSolicitudesService {
     fecha:  new FormControl('', Validators.required),//
     estado: new FormControl('', Validators.required),
     tipoSolicitud:  new FormControl('', Validators.required),
-    seccionId:  new FormControl('', Validators.required),
+    seccionId:  new FormControl(0, Validators.required),
     personaId:  new FormControl(0, Validators.required),
   })
 
@@ -88,7 +119,7 @@ export class ClienteSolicitudesService {
       })
   }
   
-  setSolicitudesForm(row){
+  updateSolicitudesForm(row){
     this.SolicitudForm.setValue({
       solicitudId: row.solicitudId,
       descripcion: row.descripcion,
@@ -97,8 +128,22 @@ export class ClienteSolicitudesService {
       fecha: row.fecha,
       estado: row.estado,
       tipoSolicitud: row.tipoSolicitud,
-      seccionId:row.seccion.nombreSeccion,
-      personaId: '',
+      seccionId:row.seccionId,
+      personaId:row.personaId,
+    })
+  }
+
+  resetSolicitudesForm(){
+    this.SolicitudForm.setValue({
+      solicitudId: 0,
+      descripcion:'',
+      direccionSolicitud:'',
+      sector: '',
+      fecha:'',
+      estado:'',
+      tipoSolicitud: '',
+      seccionId:0,
+      personaId:0,
     })
   }
 }

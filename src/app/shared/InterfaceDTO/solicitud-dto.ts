@@ -14,6 +14,8 @@ export interface SolicitudDTO {
     fecha:Date 
     estado :string
     tipoSolicitud:string  
+    seccionId :number
+    personaId:number
     cotizaciones: CotizacionesDTO 
     seccion:SeccionDTO  
     rutaSolicitud:RutaSolicitudDTO[] 

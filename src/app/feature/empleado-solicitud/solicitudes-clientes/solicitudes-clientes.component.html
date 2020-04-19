@@ -6,43 +6,7 @@
   <div class="col-12 mt-4">
     <mat-tab-group class="col-12" mat-align-tabs="center">
       <mat-tab label="Solicitudes" class="col-12 mt-5">
-        <form [formGroup]="this._clienteService.SolicitudForm"
-          class=" pt-3 bg-white m-auto align-self-center col-12">
-          <div class="row">
-            <div class="col-12">
-              <mat-form-field class="col-6 col-lg-2">
-                <mat-label>Fecha</mat-label>
-                <input matInput [matDatepicker]="picker2" formControlName="fecha" readonly />
-                <mat-datepicker-toggle matSuffix [for]="picker2" readonly></mat-datepicker-toggle>
-                <mat-datepicker #picker2></mat-datepicker>
-              </mat-form-field>
-              <mat-form-field class="col-6 col-lg-2">
-                <input matInput type="text" placeholder="Departamento" readonly value="{{departamento}}" />
-              </mat-form-field>
-              <mat-form-field class="col-6 col-lg-2">
-                <input matInput type="text" placeholder="Seccion" readonly formControlName="seccionId" />
-              </mat-form-field>
-              <mat-form-field class="col-6 col-lg-2">
-                <input matInput type="text" placeholder="Sector" readonly formControlName="sector" />
-              </mat-form-field>
-              <mat-form-field class="col-6 col-lg-2">
-                <input matInput type="text" placeholder="Estado" readonly formControlName="estado" />
-              </mat-form-field>
-              <mat-form-field class="col-6 col-lg-4">
-                <input matInput type="text" placeholder="Direccion de Solicitud" readonly
-                  formControlName="direccionSolicitud" />
-              </mat-form-field>
-              <mat-form-field class="example-full-width col-5 col-lg-5">
-                <input matInput #message maxlength="256" placeholder="Descripcion" readonly
-                  formControlName="descripcion" />
-                <mat-hint align="end">{{ message.value.length }} / 256</mat-hint>
-              </mat-form-field>
-              <div class="offset-1 col-2 d-inline hadow-lg p-1 pt-2 border  enlaces mb-3 w-25" (click)="Add()">
-                <i class="fas fa-user-plus"></i>  Nueva Solicitud
-            </div>
-            </div>
-          </div>
-        </form>
+        <app-create-solicitud></app-create-solicitud>
         <div class="col-12 h-auto">
           <div class="mat-elevation-z0 col-12">
             <table mat-table [dataSource]="dataSource" matSort>
