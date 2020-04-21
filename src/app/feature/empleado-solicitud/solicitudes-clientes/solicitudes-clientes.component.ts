@@ -50,6 +50,7 @@ export class SolicitudesClientesComponent implements OnInit {
     this._clienteService.cotizacion.emit(null) 
     this.departamento ='';
     this._clienteService.selected = '';
+    this._clienteService.idSolicitud =0;
     this.dialogRef.close();
   }
 
@@ -58,6 +59,7 @@ export class SolicitudesClientesComponent implements OnInit {
     this._clienteService.dep =  row.seccion.departamento.nombreDepartamento
     this._clienteService.setFom();
     this._clienteService.cotizacion.emit(row); 
+    this._clienteService.idSolicitud = row.solicitudId;
   }
 
   Add(){

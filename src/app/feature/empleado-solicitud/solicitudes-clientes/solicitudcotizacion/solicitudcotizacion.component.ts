@@ -24,13 +24,14 @@ export class SolicitudcotizacionComponent implements OnInit {
 
   constructor(private _clienteService: ClienteSolicitudesService,) { 
     this._clienteService.cotizacion.subscribe( val =>{
-      if(val !==null){
+      if(val.cotizaciones){
+        
         this.dataSource.data = val.cotizaciones.detalleCotizacion;
         this.totalCotizado = val.cotizaciones.totalCotizado;
         this.fechacotizacion =val.cotizaciones.fechaCotizacion;
         this.estadoCotizacion =val.cotizaciones.estadoCotizacion;
       }
-     
+     console.log(val.cotizaciones)
     })
     
   }

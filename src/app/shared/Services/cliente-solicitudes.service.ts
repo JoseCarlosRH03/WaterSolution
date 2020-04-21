@@ -9,6 +9,8 @@ import { CotizacionesDTO } from '../InterfaceDTO/cotizaciones-dto';
 import { Departamentos } from '../Models/departamentos';
 import { Secciones } from '../Models/secciones';
 import { EmpleadoServiceService } from './empleado-service.service';
+import { Seguimientos } from '../Models/seguimientos';
+import { SeguimientosDTO } from '../InterfaceDTO/seguimientos-dto';
 
 
 @Injectable({
@@ -19,16 +21,16 @@ export class ClienteSolicitudesService {
   private SolicitudURL = `https://localhost:44329/api/Solicitud`;
   listclienteData:  EventEmitter<Cliente[]> = new EventEmitter()
   listSolicitudesDTO:  EventEmitter<SolicitudDTO[]> = new EventEmitter()
-  cotizacion: EventEmitter<CotizacionesDTO> = new EventEmitter();
-  selected = '';
+  cotizacion: EventEmitter<SolicitudDTO> = new EventEmitter();
   Departamentos:Departamentos[] = [];
   secciones:Secciones[] = [];
-  dep = '';
   idDepartamento = '';
   solicitudEstado = ['Pendiente por Ruta', 'En ruta','cancelado', 'En cotizacion', 'Completado', 'Pendiente de Pago', 'Pendiente por Cotizacion'];
   tipoSolicitud =['Instalacion', 'Reparacion', 'Cotizacion'];
-  idPersona
-
+  idPersona = 0;
+  selected = '';
+  dep = '';
+  idSolicitud = 0;
   constructor( private _http: HttpClient,private _EmpleadoService:EmpleadoServiceService) { 
 
    this.starList()
@@ -55,6 +57,10 @@ export class ClienteSolicitudesService {
     return   this._http.put<Solicitud>(`${this.SolicitudURL}/${data.solicitudId}`,data);
   }
 
+  setSeguimiento$(data:Seguimientos):Observable<SeguimientosDTO[]>{
+    return this._http.post<SeguimientosDTO[]>(`${this.SolicitudURL}/Sequimiento`,data);
+  } 
+
   starList(){
     this.listClientes$().subscribe( data => {
       this.listclienteData.emit(data) ;
@@ -78,8 +84,13 @@ export class ClienteSolicitudesService {
   }
 
 
-
-
+  seguimientoForm: FormGroup  = new FormGroup({
+    idSeguimientos:new FormControl(0, Validators.required),
+    seguimiento:new FormControl('', Validators.required),
+    idSolicitud:new FormControl(0, Validators.required),
+    idEmpleado:new FormControl(0, Validators.required),
+    fechaSeguimiento:new FormControl('', Validators.required),
+  })
 
   ClientesForm: FormGroup  = new FormGroup({
     personaId: new FormControl(0),
@@ -118,6 +129,7 @@ export class ClienteSolicitudesService {
 
 
   setClienteForm(row){
+   
     this.ClientesForm.setValue({
       personaId: row.personaId,
       nombre: row.nombre,
@@ -130,6 +142,7 @@ export class ClienteSolicitudesService {
   }
   
   updateSolicitudesForm(row){
+    this.idSolicitud = row.solicitudId;
     this.SolicitudForm.setValue({
       solicitudId: row.solicitudId,
       descripcion: row.descripcion,
@@ -156,6 +169,17 @@ export class ClienteSolicitudesService {
       personaId:0,
     })
   }
+
+  resetSeguimientoForm(){
+    this.seguimientoForm.setValue({
+    idSeguimientos:0,
+    seguimiento:'',
+    idSolicitud:0,
+    idEmpleado:0,
+    fechaSeguimiento:'',
+    })
+  }
+
 }
 
 

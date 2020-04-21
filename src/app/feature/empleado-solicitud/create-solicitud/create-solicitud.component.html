@@ -1,65 +1,65 @@
 
-   <form  [formGroup]="this._clienteService.SolicitudForm" >
+<form  [formGroup]="this._clienteService.SolicitudForm" >
+    <div class="col-12 ">
         <div class="col-12 ">
-            <div class="col-12 ">
-                <h6 class="col-12"> <i class="fas fa-address-card"></i>  Datos</h6>
-                <mat-form-field class="col-6 col-lg-2" >        
-                <mat-label>Fecha</mat-label>
-                    <input matInput [matDatepicker]="picker2" formControlName="fecha" readonly>
-                    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-                    <mat-datepicker #picker2></mat-datepicker>
-                </mat-form-field>
-                <mat-form-field class="col-6 col-lg-2">
-                    <mat-label>Departamento</mat-label>
-                    <mat-select [(value)]="this._clienteService.selected">
-                      <mat-option *ngFor="let departamento of this._clienteService.Departamentos" (click)="Change(departamento.secciones)" value="{{departamento.idDepartamento}}" >
-                        {{departamento.nombreDepartamento}}
-                      </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field class="col-6 col-lg-2">
-                <mat-label>Seccion</mat-label>
-                    <mat-select formControlName="seccionId">
-                      <mat-option *ngFor="let Seccion of this._clienteService.secciones" value="{{Seccion.idSeccion}}">
-                        {{Seccion.nombreSeccion}}
-                      </mat-option>
-                    </mat-select>
-                </mat-form-field>
-                <mat-form-field class="col-6 col-lg-2">
-                    <mat-label>Tipo</mat-label>
-                 <mat-select formControlName="tipoSolicitud">
-                    <mat-option *ngFor="let tipo of this._clienteService.tipoSolicitud"  value="{{tipo}}" >
-                        {{tipo}}
-                    </mat-option>
-                 </mat-select>
-                </mat-form-field>
-                <mat-form-field class="col-6 col-lg-2">
-                  <mat-label>Estado</mat-label>
-                  <mat-select formControlName="estado">
-                    <mat-option *ngFor="let estado of this._clienteService.solicitudEstado"  value="{{estado}}" >
-                        {{estado}}
-                    </mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <mat-form-field class="col-6 col-lg-2">
-                    <input matInput type="text" placeholder="Sector" formControlName="sector">
-                </mat-form-field>  
-                <mat-form-field class="col-6 col-lg-4">
-                    <input matInput type="text" placeholder="Direccion de Solicitud" formControlName="direccionSolicitud">
-                </mat-form-field> 
-                <mat-form-field class="example-full-width col-6 col-lg-4">
-                    <mat-label>Message</mat-label>
-                    <input matInput #message maxlength="256" placeholder="Ex. I need help with..." formControlName="descripcion">
-                    <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
-                </mat-form-field>  
+            <h6 class="col-12"> <i class="fas fa-address-card"></i>  Datos</h6>
+            <mat-form-field class="col-6 col-lg-2" >        
+            <mat-label>Fecha</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="fecha" readonly>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-2">
+                <mat-label>Departamento</mat-label>
+                <mat-select [(value)]="this._clienteService.selected">
+                  <mat-option *ngFor="let departamento of this._clienteService.Departamentos" (click)="Change(departamento.secciones)" value="{{departamento.idDepartamento}}" >
+                    {{departamento.nombreDepartamento}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-2">
+            <mat-label>Seccion</mat-label>
+                <mat-select formControlName="seccionId">
+                  <mat-option *ngFor="let Seccion of this._clienteService.secciones" value="{{Seccion.idSeccion}}">
+                    {{Seccion.nombreSeccion}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-2">
+                <mat-label>Tipo</mat-label>
+              <mat-select formControlName="tipoSolicitud">
+                <mat-option *ngFor="let tipo of this._clienteService.tipoSolicitud"  value="{{tipo}}" >
+                    {{tipo}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-2">
+              <mat-label>Estado</mat-label>
+              <mat-select formControlName="estado">
+                <mat-option *ngFor="let estado of this._clienteService.solicitudEstado"  value="{{estado}}" >
+                    {{estado}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-2">
+                <input matInput type="text" placeholder="Sector" formControlName="sector">
+            </mat-form-field>  
+            <mat-form-field class="col-6 col-lg-4">
+                <input matInput type="text" placeholder="Direccion de Solicitud" formControlName="direccionSolicitud">
+            </mat-form-field> 
+            <mat-form-field class="example-full-width col-6 col-lg-4">
+                <mat-label>Message</mat-label>
+                <input matInput #message maxlength="256" placeholder="Ex. I need help with..." formControlName="descripcion">
+                <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+            </mat-form-field>  
 
-                <button mat-raised-button class="bg-info col-1 m-1" (click)='Enviar()' >Enviar</button>
-                <button mat-raised-button class="bg-warning col-1 m-1" (click)='Cancelar()'>Cancelar  </button>
+            <button mat-raised-button class="bg-info col-1 m-1" (click)='Enviar()' >Enviar</button>
+            <button mat-raised-button class="bg-warning col-1 m-1" (click)='Cancelar()'>Cancelar  </button>
 
-                <div class="col-6 col-lg-5">
-                   <p>Todos los campos son requeridos</p>
-                </div>      
-            </div> 
-        </div>
-       
-    </form>
+            <div class="col-6 col-lg-5">
+                <p>Todos los campos son requeridos</p>
+            </div>      
+        </div> 
+    </div>
+    
+</form>

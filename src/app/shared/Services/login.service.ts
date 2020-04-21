@@ -38,7 +38,7 @@ export class LoginService {
       this.ValEMpleado$ = this._http.get<EmpleadoDTO>(`${this.LoginURL}Login/${UserName}/${PassWord}`);
 
       this.ValEMpleado$.subscribe( val =>{ 
-        
+        this.UsuarioVal = val
         if(val.cedulaEmpleado !== null){
           localStorage.setItem('Usuario', JSON.stringify(val));
           this.loginForm.reset()
@@ -50,6 +50,7 @@ export class LoginService {
     GetUser(){
       if( this.ValEMpleado$ !== null ){
         this.ValEMpleado$.subscribe( val =>{
+          this.UsuarioVal = val;
           this.SetValue(val);
         })
         this.estoy = true

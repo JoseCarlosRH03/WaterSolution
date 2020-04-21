@@ -2,10 +2,10 @@ import { Solicitud } from './solicitud'
 
 export class Seguimientos {
     
-    IdSeguimientos:number 
-    Seguimiento:string 
-    IdSolicitud:number
-    Fecha:Date
-
+    idSeguimientos:number 
+    seguimiento:string 
+    idSolicitud:number
+    fechaSeguimiento:Date
+    idEmpleado:number
     IdSolicitudNavigation: Solicitud
 }
