@@ -29,7 +29,6 @@ import { SolicitudSeguimientosComponent } from './solicitudes-clientes/solicitud
   ],
   entryComponents:[
     CreateClienteComponent,
-    SolicitudesClientesComponent
   ],
   exports:[
     

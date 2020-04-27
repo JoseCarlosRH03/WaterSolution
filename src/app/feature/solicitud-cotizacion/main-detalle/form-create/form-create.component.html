@@ -1,0 +1,20 @@
+<form  [formGroup]="this._cotizacionService.detalleForm" >
+    <div class="col-12 ">
+        <div class="col-12 ">
+            <mat-form-field class="col-6 col-lg-2" formGroupName="material">
+                <input matInput type="text" placeholder="Nombre" formControlName="nombre" readonly>
+            </mat-form-field>  
+            <mat-form-field class="col-6 col-lg-2">
+                <input matInput type="number" placeholder="Cantidad" formControlName="cantidad" (keyup)="calcular($event.target.value)">
+            </mat-form-field> 
+            <mat-form-field class="col-6 col-lg-2">
+                <input matInput type="number" placeholder="precio" formControlName="presio" (keyup)="calcular($event.target.value)">
+            </mat-form-field> 
+            <mat-form-field class="col-6 col-lg-2">
+                <input matInput type="number" placeholder="Sub Total" formControlName="totalDetalle" readonly>
+            </mat-form-field> 
+            <button mat-raised-button class="bg-info col-1 m-1 text-center " (click)='Enviar()' >Agregar</button>
+            <button mat-raised-button class="bg-warning col-1 m-1  text-center" (click)='Cancelar()'>Cancelar  </button>       
+        </div> 
+    </div>
+</form>

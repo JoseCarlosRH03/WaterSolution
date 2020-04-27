@@ -73,5 +73,6 @@ export class CreateSolicitudComponent implements OnInit {
       fecha:  new Date()
     })
     this._clienteService.selected = '';
+    this._clienteService.cotizacion.emit(null)
   }
 }

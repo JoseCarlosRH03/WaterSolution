@@ -1,8 +1,13 @@
 import { MaterialDTO } from './material-dto'
+import { CotizacionesDTO } from './cotizaciones-dto'
 
-export interface DetalleCotizacionDTO {
+export class DetalleCotizacionDTO {
+    detalleCotizacionId:number
     cantidad: number
+    materialId: number
+    cotizacionId: number
     totalDetalle:number 
-    precio:number 
+    presio:number 
+    cotizacion: CotizacionesDTO
     material:MaterialDTO 
 }

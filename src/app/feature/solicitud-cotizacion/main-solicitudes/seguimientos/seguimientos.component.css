@@ -1,0 +1,24 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width:auto;
+  }
+
+  .filtro{
+    padding: 0;
+  }
+
+  .example-stretched-tabs {
+    max-width: 800px;
+  }
+
+  .cuadros{
+    border-radius: 25px;
+}

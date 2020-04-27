@@ -13,7 +13,7 @@ export class SolicitudrutasComponent implements OnInit {
   displayedColumns: string[] = 
   ['fechaRuta', 'nombreEmpleado', 'apellidosEmpleado'];
   
-  dataSource = new MatTableDataSource<RutaSolicitudDTO[]>() ;
+  dataSource = new MatTableDataSource<RutaSolicitudDTO>() ;
  
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -25,7 +25,10 @@ export class SolicitudrutasComponent implements OnInit {
     this._clienteService.cotizacion.subscribe( data =>{
       if(data !==null){
       this.dataSource.data = data.rutaSolicitud;
+    }else{
+      this.dataSource.data =[]
     }
+
     })
    }
 

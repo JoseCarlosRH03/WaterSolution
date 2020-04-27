@@ -1,3 +1,5 @@
-export interface MaterialDTO {
+export class MaterialDTO {
+     
+     materialId:number
      nombre:string
 }

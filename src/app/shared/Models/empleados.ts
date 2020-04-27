@@ -12,4 +12,5 @@ export interface Empleados {
     cargoidCargo:number 
     seccionIdSeccion:number 
     usuario:Usuarios
+    estado:boolean
 }

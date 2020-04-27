@@ -15,8 +15,7 @@ export class HeaderComponent implements OnInit {
     {'options':'Perfil','link':'/Main/UserMain/UserPerFil'},
     {'options':'Empleados','link':'/Main/UserMain/UserCreate'},
     {'options':'Clientes','link':'/Main/Clientes/Create'},
-    {'options':'Solicitudes','link':'/Main/Clientes/SolicitudCreate'},
-    {'options':'mostrar','link':'/Main/Clientes/Solicitudes'}
+    {'options':'Cotizaciones','link':'/Main/Cotizacion/Solicitudes'},
   ]
   constructor(fb: FormBuilder,private router: Router,private _service:LoginService) {
    this.options = fb.group({

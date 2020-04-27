@@ -95,7 +95,8 @@ export class EmpleadoServiceService {
       EstadoUsuario: new FormControl(true),
     }),
     fechaEmpleado: new FormControl('', Validators.required),
-    direccionEmpleado: new FormControl('', Validators.required), 
+    direccionEmpleado: new FormControl('', Validators.required),
+    estado:  new FormControl(true)
       
    
   });
@@ -116,7 +117,8 @@ export class EmpleadoServiceService {
           EstadoUsuario:true,
         }),
         fechaEmpleado: '',
-        direccionEmpleado:'', 
+        direccionEmpleado:'',
+        estado: true 
       })
     }
 
@@ -137,7 +139,8 @@ export class EmpleadoServiceService {
         EstadoUsuario: val.estadoUsuario,
       }),
       fechaEmpleado: val.fechaEmpleado,
-      direccionEmpleado:val.direccionEmpleado, 
+      direccionEmpleado:val.direccionEmpleado,
+      estado: true 
     })
   }  
 }

@@ -1,0 +1,34 @@
+.enlaces{
+    border-radius: 15px;
+    background-color: #69C9E1 ;
+  }
+  
+  .enlaces:hover{
+    background-color:#EBB61A ;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  
+    table {
+      width: 100%;
+    }
+    
+    .mat-form-field {
+      font-size: 14px;
+      width: 100%;
+    }
+    
+    td, th {
+      width:auto;
+   
+    }
+  
+    .filtro{
+      padding: 0;
+    }
+  
+    .example-stretched-tabs {
+      max-width: 800px;
+    }
+  
+  

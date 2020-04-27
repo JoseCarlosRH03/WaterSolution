@@ -1,0 +1,33 @@
+<div class="row h-auto p-0  justify-content-center mat-accent">
+    <div class="row col-11 h-75 cuadros shadow-lg p-3 bg-white mt-4">
+        <div class="col-12 d-inline text-center">
+            <h4 class="col-11  d-inline">
+            <i class="fas fa-file"></i> Cotizacion
+            </h4>
+            <div class="col-2 offset-11 d-inline">
+                <button type="button" class="btn btn-danger rounded-circle d-inline" (click)="cerrarForm()">X</button>
+            </div>
+        </div>
+        <app-form-create class="col-12"></app-form-create>
+        <app-materiales class="col-5"></app-materiales>
+        <app-detalle class="col-7"></app-detalle>
+
+        <div class="col-12 mb-2 mt-3 align-self-stretch">
+            <mat-form-field class="col-6 col-lg-3 m-0" >
+                <input matInput type="text" placeholder="Total" readonly  value="RD$ {{_CotizacionServices.cotizacion.totalCotizado}}">
+            </mat-form-field> 
+            <mat-form-field class="col-6 col-lg-3 m-0" >
+                <input matInput type="text" placeholder="Fecha" readonly  value="{{_CotizacionServices.cotizacion.fechaCotizacion | date: 'dd/MM/yyyy' }}">
+            </mat-form-field> 
+            <mat-form-field class="col-6 col-lg-2">
+                <mat-label>Estado</mat-label>
+                <mat-select [(value)]="_CotizacionServices.cotizacion.estadoCotizacion">
+                  <mat-option *ngFor="let estado of estados" value="{{estado}}">
+                    {{estado}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button mat-raised-button class="bg-info col-1 m-1 text-center " (click)='Enviar()' >Guardar</button>
+        </div>
+    </div>
+</div>

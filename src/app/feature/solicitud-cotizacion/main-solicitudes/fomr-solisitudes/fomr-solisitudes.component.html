@@ -1,0 +1,61 @@
+<form  [formGroup]="this._cotizacionSolicitud.SolicitudForm" >
+    <div class="col-12 ">
+        <div class="col-12 ">
+            <mat-form-field class="col-6 col-lg-2" >        
+            <mat-label>Fecha</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="fecha" readonly>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-2">
+                <mat-label>Departamento</mat-label>
+                <mat-select [(value)]="this._cotizacionSolicitud.selected">
+                  <mat-option *ngFor="let departamento of this._cotizacionSolicitud.Departamentos" (click)="Change(departamento.secciones)" value="{{departamento.idDepartamento}}" disabled >
+                    {{departamento.nombreDepartamento}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-2">
+            <mat-label>Seccion</mat-label>
+                <mat-select formControlName="seccionId">
+                  <mat-option *ngFor="let Seccion of this._cotizacionSolicitud.secciones" value="{{Seccion.idSeccion}}" disabled>
+                    {{Seccion.nombreSeccion}}
+                  </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-2">
+                <mat-label>Tipo</mat-label>
+              <mat-select formControlName="tipoSolicitud">
+                <mat-option *ngFor="let tipo of this._cotizacionSolicitud.tipoSolicitud"  value="{{tipo}}" disabled>
+                    {{tipo}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-2">
+              <mat-label>Estado</mat-label>
+              <mat-select formControlName="estado">
+                <mat-option *ngFor="let estado of this._cotizacionSolicitud.solicitudEstado"  value="{{estado}}" disabled>
+                    {{estado}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-2">
+                <input matInput type="text" placeholder="Sector" formControlName="sector" readonly>
+            </mat-form-field>  
+            <mat-form-field class="col-6 col-lg-4">
+                <input matInput type="text" placeholder="Direccion de Solicitud" formControlName="direccionSolicitud" readonly>
+            </mat-form-field> 
+            <mat-form-field class="example-full-width col-6 col-lg-4">
+                <mat-label>Message</mat-label>
+                <input matInput #message maxlength="256" placeholder="Ex. I need help with..." formControlName="descripcion" readonly>
+                <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+            </mat-form-field>  
+
+            <button mat-raised-button class="bg-info col-1 p-0 m-1" (click)='Enviar()' >Seguimientos</button>
+            <button mat-raised-button class="bg-light col-1 m-1" (click)='Cotizacion()'>Cotizacion</button>
+            <button mat-raised-button class="bg-warning col-1 m-1" (click)='Cancelar()'>Cancelar</button>
+              
+        </div> 
+    </div>
+    
+</form>
