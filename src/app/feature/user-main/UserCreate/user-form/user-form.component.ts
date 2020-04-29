@@ -47,7 +47,6 @@ export class UserFormComponent implements OnInit {
         });
         this.pupop.warn("Creación Completada")
        }else{
-         console.log(this._EmpleadoService.EmpleadosForm.value)
         this._EmpleadoService.upDateEmpleado$(this._EmpleadoService.EmpleadosForm.value).subscribe(val =>{
           
           this._EmpleadoService.GetListEmpleados$().subscribe( val =>{

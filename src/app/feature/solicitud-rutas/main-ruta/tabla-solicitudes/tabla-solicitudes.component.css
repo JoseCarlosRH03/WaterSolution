@@ -1,0 +1,23 @@
+
+table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width:auto;
+  }
+
+  .filtro{
+    padding: 0;
+  }
+
+  .option:hover{
+    cursor: pointer;
+    background-color:#EBB61A ;
+    border-radius: 15px;
+  }

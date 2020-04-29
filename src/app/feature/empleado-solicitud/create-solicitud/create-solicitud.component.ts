@@ -47,7 +47,6 @@ export class CreateSolicitudComponent implements OnInit {
         .subscribe(val =>{
           this._clienteService.getSolicitudesCliente$(val.personaId).subscribe( data =>{
             this._clienteService.listSolicitudesDTO.emit(data)
-            console.log("SoliditudesDTO",data);
           })
           this._Notification.success('Solicitud Actualizada Correctamente')
         })

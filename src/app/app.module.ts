@@ -13,6 +13,7 @@ import { MatNativeDateModule } from '@angular/material';
 import { EmpleadoServiceService } from './shared/Services/empleado-service.service';
 import { ClienteSolicitudesService } from './shared/Services/cliente-solicitudes.service';
 import { CotizacionSolicitudService } from './shared/Services/cotizacion-solicitud.service';
+import { RutaServicesService } from './shared/Services/ruta-services.service';
 
 
 
@@ -35,7 +36,8 @@ import { CotizacionSolicitudService } from './shared/Services/cotizacion-solicit
     NotificationServiceService,
     EmpleadoServiceService,
     ClienteSolicitudesService,
-    CotizacionSolicitudService
+    CotizacionSolicitudService,
+    RutaServicesService
   ],
   bootstrap: [AppComponent],
     
