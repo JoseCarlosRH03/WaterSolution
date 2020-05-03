@@ -25,7 +25,7 @@ export class ClienteSolicitudesService {
   Departamentos:Departamentos[] = [];
   secciones:Secciones[] = [];
   idDepartamento = '';
-  solicitudEstado = ['Pendiente por Ruta', 'En ruta','cancelado', 'En cotizacion', 'Completado', 'Pendiente de Pago', 'Pendiente por Cotizacion'];
+  solicitudEstado = ['Pendiente por Ruta', 'En ruta','cancelado', 'En cotizacion', 'completado', 'Pendiente de Pago', 'Pendiente por Cotizacion'];
   tipoSolicitud =['Instalacion', 'Reparacion', 'Cotizacion'];
   idPersona = 0;
   selected = '';

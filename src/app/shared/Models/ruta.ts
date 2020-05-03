@@ -11,7 +11,7 @@ export class Ruta {
     rutaId:number
     fecha:Date
     idEmpleado:number
-    empleado:Empleados
+    empleadoRuta:Empleados
    
 
 }

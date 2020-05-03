@@ -1,4 +1,6 @@
 import { Ruta } from './ruta';
+import { Solicitud } from './solicitud';
+import { Seguimientos } from './seguimientos';
 
 export class RutaSolicitud {
 
@@ -12,4 +14,6 @@ export class RutaSolicitud {
     solicitudId:number
     rutaId:number
     ruta:Ruta
+    solicitud: Solicitud
+    
 }

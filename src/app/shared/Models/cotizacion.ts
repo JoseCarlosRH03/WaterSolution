@@ -3,11 +3,11 @@ import { DetalleCotizacion } from './detalle-cotizacion';
 
 export interface Cotizacion {
 
-     CotizacionId:number
-     TotalCotizado: number
-     FechaCotizacion: Date
-     EstadoCotizacion: string
-     SolicitudId:number 
-     Solicitud: Solicitud 
-     DetalleCotizacion:DetalleCotizacion 
+     cotizacionId:number
+     totalCotizado: number
+     fechaCotizacion: Date
+     estadoCotizacion: string
+     solicitudId:number 
+     solicitud: Solicitud 
+     detalleCotizacion:DetalleCotizacion[] 
 }

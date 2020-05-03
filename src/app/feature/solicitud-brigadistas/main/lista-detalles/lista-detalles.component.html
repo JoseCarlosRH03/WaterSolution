@@ -1,0 +1,36 @@
+<h4 class="col-11  d-inline text-center">
+  <i class="fas fa-tools"></i> Materiales
+</h4>
+<div class="row h-auto">
+    <div class="mat-elevation-z0 col-12">
+      <mat-form-field class="col-5">
+        <input
+          matInput
+          (keyup)="applyFilter($event.target.value)"
+          placeholder="buscar"
+          class=""
+        />
+      </mat-form-field>
+      <table mat-table [dataSource]="this._brigadistaService.dataSourceDetalle" matSort>
+
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombres</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.material.nombre  }}
+          </td>
+        </ng-container>
+  
+        <!-- Name Column -->
+        <ng-container matColumnDef="cantidad">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Cantidades</th>
+          <td mat-cell *matCellDef="let row">
+            {{ row.cantidad }}
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    </div>
+  </div>

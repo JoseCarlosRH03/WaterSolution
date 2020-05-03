@@ -9,6 +9,7 @@ import { Empleados } from '../Models/empleados';
 import { Solicitud } from '../Models/solicitud';
 import { Ruta } from '../Models/ruta';
 import { RutaSolicitud } from '../Models/ruta-solicitud';
+import { RutaSolicitudDTO } from '../InterfaceDTO/ruta-solicitud-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -34,12 +35,18 @@ export class RutaServicesService {
       this.listSolicitudesDTO.emit(data);
     })
   }
-
+ 
   getBgrigadistas(){
     this.getBrigadistas$(this.user.UsuarioVal.idSeccion).subscribe( data=>{
       this.brigadistas = data
     })
   }
+
+  getRuta$(id:number):Observable<RutaSolicitudDTO[]>{
+    return  this._http.get<RutaSolicitudDTO[]>(`${this.RutaURL}/${id}`);
+  }
+
+  
   getSolicitudesDepartamento$(id:number):Observable<SolicitudDTO[]>{
     return  this._http.get<SolicitudDTO[]>(`${this.SolicitudURL}/RutaSolicitud/${id}`);
   }

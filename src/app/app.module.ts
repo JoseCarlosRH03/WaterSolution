@@ -14,6 +14,7 @@ import { EmpleadoServiceService } from './shared/Services/empleado-service.servi
 import { ClienteSolicitudesService } from './shared/Services/cliente-solicitudes.service';
 import { CotizacionSolicitudService } from './shared/Services/cotizacion-solicitud.service';
 import { RutaServicesService } from './shared/Services/ruta-services.service';
+import { BrigadistaService } from './shared/Services/brigadista.service';
 
 
 
@@ -37,7 +38,8 @@ import { RutaServicesService } from './shared/Services/ruta-services.service';
     EmpleadoServiceService,
     ClienteSolicitudesService,
     CotizacionSolicitudService,
-    RutaServicesService
+    RutaServicesService,
+    BrigadistaService
   ],
   bootstrap: [AppComponent],
     

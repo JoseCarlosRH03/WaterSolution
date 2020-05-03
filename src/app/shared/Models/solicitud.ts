@@ -11,14 +11,14 @@ export interface Solicitud {
     direccionSolicitud:string 
     sector:string  
     fecha:Date 
-    estado:boolean 
+    estado:string 
     tipoSolicitud: string   
     seccionId: number 
     personaId: number
     persona:Cliente
     seccion:Secciones
-    cotizaciones:Cotizacion[]
+    cotizaciones:Cotizacion
     rutaSolicitud:RutaSolicitud[]
-    Seguimientos: Seguimientos[]
+    seguimientos: Seguimientos[]
 
 }

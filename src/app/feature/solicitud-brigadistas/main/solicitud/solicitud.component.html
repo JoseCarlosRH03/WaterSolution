@@ -1,0 +1,47 @@
+<h4 class="col-11  d-inline text-center">
+    <i class="fas fa-file"></i> Solicitud
+</h4>
+<form  [formGroup]="this._brigadistaService.SolicitudForm" >
+    <div class="col-12 ">
+        <div class="col-12 ">
+            <mat-form-field class="col-6 col-lg-5" >        
+            <mat-label>Fecha</mat-label>
+                <input matInput [matDatepicker]="picker2" formControlName="fecha" readonly>
+                <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+                <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-5">
+                <mat-label>Tipo</mat-label>
+              <mat-select formControlName="tipoSolicitud">
+                <mat-option *ngFor="let tipo of this._brigadistaService.tipoSolicitud"  value="{{tipo}}" disabled>
+                    {{tipo}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-5">
+              <mat-label>Estado</mat-label>
+              <mat-select formControlName="estado">
+                <mat-option *ngFor="let estado of solicitudEstado"  value="{{estado}}">
+                    {{estado}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="col-6 col-lg-5">
+                <input matInput type="text" placeholder="Sector" formControlName="sector" readonly>
+            </mat-form-field>  
+            <mat-form-field class="col-6 col-lg-12">
+                <input matInput type="text" placeholder="Direccion de Solicitud" formControlName="direccionSolicitud" readonly>
+            </mat-form-field> 
+            <mat-form-field class="example-full-width col-6 col-lg-12">
+                <mat-label>Message</mat-label>
+                <input matInput #message maxlength="256" placeholder="Ex. I need help with..." formControlName="descripcion" readonly>
+                <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+            </mat-form-field>  
+
+            <button mat-raised-button class="bg-info col-4 p-0 m-1" (click)='Enviar()' >Seguimientos</button>   
+            <button mat-raised-button class="bg-light col-3 m-1" (click)='completar()'>Completar</button>
+            <button mat-raised-button class="bg-warning col-3 m-1" (click)='Cancelar()'>Cancelar</button>
+        </div> 
+    </div>
+    
+</form>
